@@ -4,5 +4,5 @@
  tar -xvf openwrt-imagebuilder-${version}-ramips-mt7620.Linux-x86_64.tar
  cd openwrt-imagebuilder-${version}-ramips-mt7620.Linux-x86_64
  make info
- make image PROFILE=phicomm_psg1218a PACKAGES="uhttpd uhttpd-mod-ubus libiwinfo-lua luci-base luci-base luci-app-firewall luci-app-turboacc luci-app-autoreboot luci-app-arpbind luci-app-accesscontrol luci-proto-ppp luci-mod-admin-full luci-theme-bootstrap wpad-openssl luci-app-ddns -wpad-basic-wolfssl -ip6tables -odhcp6c -kmod-ipv6 -kmod-ip6tables -odhcpd-ipv6only " CONFIG_IPV6=n
+ make image PROFILE=phicomm_psg1218a PACKAGES="tc kmod-sched kmod-sched-core kmod-netem uhttpd uhttpd-mod-ubus libiwinfo-lua luci-base luci-base luci-app-firewall luci-app-turboacc luci-app-autoreboot luci-app-arpbind luci-app-accesscontrol luci-proto-ppp luci-mod-admin-full luci-theme-bootstrap wpad-openssl luci-app-ddns -wpad-basic-wolfssl -ip6tables -odhcp6c -kmod-ipv6 -kmod-ip6tables -odhcpd-ipv6only" CONFIG_IPV6=n
  
