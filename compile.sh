@@ -1,5 +1,5 @@
  version="21.02.2"
- ramips="mt7620"
+ ramips="mt7621"
  wget https://downloads.openwrt.org/releases/${version}/targets/ramips/${ramips}/openwrt-imagebuilder-${version}-ramips-${ramips}.Linux-x86_64.tar.xz
  xz -d openwrt-imagebuilder-${version}-ramips-${ramips}.Linux-x86_64.tar.xz
  tar -xvf openwrt-imagebuilder-${version}-ramips-${ramips}.Linux-x86_64.tar
