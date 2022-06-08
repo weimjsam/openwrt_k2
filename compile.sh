@@ -1,4 +1,4 @@
- version="21.02.3"
+version="21.02.3"
  ramips="mt7620"
  image_name="lenovo_newifi-y1"
  wget https://downloads.openwrt.org/releases/${version}/targets/ramips/${ramips}/openwrt-imagebuilder-${version}-ramips-${ramips}.Linux-x86_64.tar.xz
@@ -6,7 +6,7 @@
  tar -xvf openwrt-imagebuilder-${version}-ramips-${ramips}.Linux-x86_64.tar
  cd openwrt-imagebuilder-${version}-ramips-${ramips}.Linux-x86_64
  make info
-make image PROFILE=${image_name} PACKAGES="vsftpd openssh-sftp-server tc  kmod-ifb kmod-sched kmod-sched-core kmod-netem uhttpd uhttpd-mod-ubus libiwinfo-lua luci-base luci-base luci-app-firewall luci-proto-ppp luci-mod-admin-full luci-theme-bootstrap  luci-i18n-base-zh-cn wpad-openssl -luci-app-ddns -ddns-scripts -ddns-scripts_aliyun -ddns-scripts_dnspod -wpad-basic-wolfssl -kmod-usb-core -kmod-usb2 -kmod-usb-ohci -kmod-ledtrig-usbdev -kmod-nf-conntrack6 -kmod-nf-ipt6 -libip6tc -ip6tables -odhcp6c -kmod-ipv6 -kmod-ip6tables -odhcpd-ipv6only -luci-proto-ipv6 -kmod-nf-reject6 -6relayd -kmod-ipt-raw6 -kmod-ipt-nat6 -ipv6helper -luci-app-ipv6" CONFIG_IPV6=n CONFIG_KERNEL_CRASHLOG=n CONFIG_KERNEL_DEBUG_INFO=n CONFIG_KERNEL_ELF_CORE=n CONFIG_KERNEL_DEBUG_KERNEL=n CONFIG_STRIP_KERNEL_EXPORTS=y CONFIG_KERNEL_SWAP=n CONFIG_KERNEL_PRINTK=n CONFIG_KERNEL_PRINTK_TIME=n
+make image PROFILE=${image_name} PACKAGES="vsftpd openssh-sftp-server tc  kmod-ifb kmod-sched kmod-sched-core kmod-netem uhttpd uhttpd-mod-ubus libiwinfo-lua luci-base luci-base luci-app-firewall luci-proto-ppp luci-mod-admin-full luci-theme-bootstrap  luci-i18n-base-zh-cn wpad-openssl -luci-app-ddns -ddns-scripts -ddns-scripts_aliyun -ddns-scripts_dnspod -wpad-basic-wolfssl -kmod-usb-ehci -kmod-usb-printer -kmod-usb-storage -kmod-usb-storage-extras -kmod-usb-uhci -kmod-usb-core -kmod-usb2 -kmod-usb-ohci -kmod-ledtrig-usbdev -kmod-nf-conntrack6 -kmod-nf-ipt6 -libip6tc -ip6tables -odhcp6c -kmod-ipv6 -kmod-ip6tables -odhcpd-ipv6only -luci-proto-ipv6 -kmod-nf-reject6 -6relayd -kmod-ipt-raw6 -kmod-ipt-nat6 -ipv6helper -luci-app-ipv6" CONFIG_IPV6=n CONFIG_KERNEL_CRASHLOG=n CONFIG_KERNEL_DEBUG_INFO=n CONFIG_KERNEL_ELF_CORE=n CONFIG_KERNEL_DEBUG_KERNEL=n CONFIG_STRIP_KERNEL_EXPORTS=y CONFIG_KERNEL_SWAP=n CONFIG_KERNEL_PRINTK=n CONFIG_KERNEL_PRINTK_TIME=n CONFIG_PACKAGE_ipv6helper=n
 
 
 
