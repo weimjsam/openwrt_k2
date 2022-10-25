@@ -1,6 +1,6 @@
 version="21.02.4"
 ramips="mt7621"
-image_name="phicomm_k2p"
+image_name="d-team_newifi-d2"
 wget https://downloads.openwrt.org/releases/${version}/targets/ramips/${ramips}/openwrt-imagebuilder-${version}-ramips-${ramips}.Linux-x86_64.tar.xz
 xz -d openwrt-imagebuilder-${version}-ramips-${ramips}.Linux-x86_64.tar.xz
 tar -xvf openwrt-imagebuilder-${version}-ramips-${ramips}.Linux-x86_64.tar
@@ -11,5 +11,5 @@ make image PROFILE=${image_name} PACKAGES="firewall luci-i18n-firewall-zh-cn  vs
 
 # test：tc kmod-ifb kmod-sched kmod-sched-core kmod-netem 
 # bak ： firewall luci-i18n-firewall-zh-cn 
-# mt7620：phicomm_psg1218a lenovo_newifi-y1  
-# mt7621：phicomm_k2p d-team_newifi-d2 
+# mt7620：phicomm_psg1218a   lenovo_newifi-y1  
+# mt7621：phicomm_k2p   d-team_newifi-d2 
