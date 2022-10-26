@@ -1,6 +1,6 @@
 version="21.02.4"
-ramips="mt7621"
-image_name="d-team_newifi-d2"
+ramips="mt7620"
+image_name="lenovo_newifi-y1"
 wget https://downloads.openwrt.org/releases/${version}/targets/ramips/${ramips}/openwrt-imagebuilder-${version}-ramips-${ramips}.Linux-x86_64.tar.xz
 xz -d openwrt-imagebuilder-${version}-ramips-${ramips}.Linux-x86_64.tar.xz
 tar -xvf openwrt-imagebuilder-${version}-ramips-${ramips}.Linux-x86_64.tar
