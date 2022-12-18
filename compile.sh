@@ -14,3 +14,4 @@ make image PROFILE=${image_name} PACKAGES="firewall luci-i18n-firewall-zh-cn  vs
 # bak ： firewall luci-i18n-firewall-zh-cn 
 # mt7620：phicomm_psg1218a   lenovo_newifi-y1  
 # mt7621：phicomm_k2p   d-team_newifi-d2 
+
