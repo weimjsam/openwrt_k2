@@ -18,7 +18,6 @@ jobs:
     - name: run compile.sh
       run: |
         sudo chmod +x ./compile.sh
-        make clean
         ./compile.sh
     - name: Assemble artifact
       run: |
