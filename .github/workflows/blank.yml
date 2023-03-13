@@ -15,37 +15,10 @@ jobs:
         sudo -E apt-get upgrade
         #sudo -E apt-get install python
         sudo -E apt-get install build-essential libncurses5-dev libncursesw5-dev zlib1g-dev gawk git gettext libssl-dev xsltproc wget unzip 
-        sudo sysctl -w net.ipv4.tcp_tw_reuse=1
-        sudo sysctl -w net.ipv4.tcp_tw_recycle=1
-        sudo sysctl -w net.ipv4.tcp_fack=1
-        sudo sysctl -w net.ipv4.tcp_sack=1
-        sudo sysctl -w net.ipv4.tcp_timestamps=0
-        sudo sysctl -w net.ipv4.tcp_window_scaling=0
-        sudo sysctl -w net.ipv4.tcp_syncookies=0
-        sudo sysctl -w net.ipv4.tcp_fin_timeout=5
-        sudo sysctl -w net.ipv4.tcp_max_tw_buckets=5000
-        sudo sysctl -w net.ipv4.ip_local_port_range="1024 65535"
-        sudo sysctl -w net.netfilter.nf_conntrack_max=65535
-        sudo sysctl -w net.netfilter.nf_conntrack_tcp_timeout_close=1
-        sudo sysctl -w net.netfilter.nf_conntrack_tcp_timeout_close_wait=3
-        sudo sysctl -w net.netfilter.nf_conntrack_tcp_timeout_fin_wait=20
-        sudo sysctl -w net.netfilter.nf_conntrack_tcp_timeout_syn_recv=20
-        sudo sysctl -w net.netfilter.nf_conntrack_tcp_timeout_syn_sent=20
-        sudo sysctl -w net.netfilter.nf_conntrack_tcp_timeout_time_wait=20
-        sudo sysctl -w net.netfilter.nf_conntrack_tcp_timeout_last_ack=20
-        sudo sysctl -w net.netfilter.nf_conntrack_tcp_timeout_max_retrans=20
-        sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
-        sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1
-        sudo sysctl -w net.ipv6.conf.all.accept_ra=0
-        sudo sysctl -w net.ipv6.conf.wlan0.accept_ra=0
-        sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
-        sudo sysctl -w net.ipv6.conf.wlan0.disable_ipv6=1
-        sudo sed -i 's/^#define TCP_NODELAY.*/#define TCP_NODELAY 1/' /usr/include/netinet/tcp.h
-        sudo sed -i 's/^#define SO_REUSEADDR.*/#define SO_REUSEADDR 1/' /usr/include/sys/socket.h
-        sudo sed -i 's/^#define SO_LINGER.*/#define SO_LINGER 1/' /usr/include/sys/socket.h
     - name: run compile.sh
       run: |
         sudo chmod +x ./compile.sh
+        make clean
         ./compile.sh
     - name: Assemble artifact
       run: |
