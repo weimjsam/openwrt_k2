@@ -1,7 +1,8 @@
 version="21.02.6"
-ramips="mt7621"
-image_name="phicomm_k2p"
-wget https://downloads.openwrt.org/releases/${version}/targets/ramips/${ramips}/openwrt-imagebuilder-${version}-ramips-${ramips}.Linux-x86_64.tar.xz
+ramips="mt7622"
+targets="mediatek"
+image_name="xiaomi_redmi-router-ax6s"
+wget https://downloads.openwrt.org/releases/${version}/targets/{targets}/${ramips}/openwrt-imagebuilder-${version}-{targets}-${ramips}.Linux-x86_64.tar.xz
 xz -d openwrt-imagebuilder-${version}-ramips-${ramips}.Linux-x86_64.tar.xz
 tar -xvf openwrt-imagebuilder-${version}-ramips-${ramips}.Linux-x86_64.tar
 cd openwrt-imagebuilder-${version}-ramips-${ramips}.Linux-x86_64
@@ -11,5 +12,6 @@ make image PROFILE=${image_name} PACKAGES="tc kmod-ifb kmod-sched kmod-sched-cor
 
 # test：tc kmod-ifb kmod-sched kmod-sched-core kmod-netem \ luci-app-smartdns luci-i18n-smartdns-zh-cn smartdns 
 # bak ： firewall luci-i18n-firewall-zh-cn \ luci-app-openclash  kmod-inet-diag  kmod-nft-tproxy
-# mt7620：phicomm_psg1218a   lenovo_newifi-y1  
-# mt7621：phicomm_k2p   d-team_newifi-d2 
+# ramips mt7620：phicomm_psg1218a   lenovo_newifi-y1  
+# ramips mt7621：phicomm_k2p   d-team_newifi-d2 
+# mediatek mt7622: xiaomi_redmi-router-ax6s
