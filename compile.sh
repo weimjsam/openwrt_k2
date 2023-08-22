@@ -1,4 +1,4 @@
-version="21.02.7"
+version="21.02.6"
 mips="mt7621"
 targets="ramips"
 image_name="d-team_newifi-d2"
