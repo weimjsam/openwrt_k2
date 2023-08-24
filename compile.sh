@@ -8,7 +8,7 @@ tar -xvf openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar
 cd openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64
 
 make info
-make image PROFILE=${image_name} PACKAGES=" luci-app-smartdns luci-i18n-smartdns-zh-cn smartdns vsftpd openssh-sftp-server uhttpd uhttpd-mod-ubus vsftpd openssh-sftp-server uhttpd uhttpd-mod-ubus wpad-openssl libiwinfo-lua luci-base luci-proto-ppp luci-mod-admin-full luci-theme-bootstrap luci-i18n-base-zh-cn luci-i18n-firewall-zh-cn -logd" CONFIG_KERNEL_CRASHLOG=n CONFIG_KERNEL_DEBUG_INFO=n CONFIG_KERNEL_DEBUG_KERNEL=n CONFIG_KERNEL_PRINTK_TIME=n CONFIG_COLLECT_KERNEL_DEBUG=n CONFIG_REPRODUCIBLE_DEBUG_INFO=n
+make image PROFILE=${image_name} PACKAGES=" luci-app-smartdns luci-i18n-smartdns-zh-cn smartdns vsftpd openssh-sftp-server uhttpd uhttpd-mod-ubus vsftpd openssh-sftp-server uhttpd uhttpd-mod-ubus wpad-openssluci-base luci-mod-admin-full luci-theme-bootstrap luci-i18n-base-zh-cn luci-i18n-firewall-zh-cn -logd" CONFIG_KERNEL_CRASHLOG=n CONFIG_KERNEL_DEBUG_INFO=n CONFIG_KERNEL_DEBUG_KERNEL=n CONFIG_KERNEL_PRINTK_TIME=n CONFIG_COLLECT_KERNEL_DEBUG=n CONFIG_REPRODUCIBLE_DEBUG_INFO=n
 
 # test：tc kmod-ifb kmod-sched kmod-sched-core kmod-netem \ luci-app-smartdns luci-i18n-smartdns-zh-cn smartdns 
 # bak ： firewall luci-i18n-firewall-zh-cn \ luci-app-openclash  kmod-inet-diag  kmod-nft-tproxy
