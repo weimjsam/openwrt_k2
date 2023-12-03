@@ -1,5 +1,5 @@
 version="21.02.7"
-mips="mt7620"
+mips="mt7621"
 targets="ramips"
 image_name="d-team_newifi-d2"
 wget https://downloads.openwrt.org/releases/${version}/targets/${targets}/${mips}/openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar.xz
