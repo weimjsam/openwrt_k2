@@ -1,4 +1,4 @@
-version="23.05.2"
+version="21.02.7"
 mips="mt7621"
 targets="ramips"
 image_name="phicomm_k2p"
@@ -10,7 +10,6 @@ cd openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64
 make info
 make image PROFILE=${image_name} PACKAGES="\
 kmod-tcp-bbr uhttpd openssh-sftp-server luci-base luci-proto-ppp luci-mod-admin-full luci-theme-bootstrap luci-i18n-base-zh-cn luci-i18n-firewall-zh-cn \
-iptables kmod-ipt-offload ipset iptables-nft arptables-nft ebtables-nft xtables-nft \
 smartdns luci-app-smartdns luci-i18n-smartdns-zh-cn \
 -odhcp6c -odhcpd-ipv6only \
 relayd luci-proto-relay \
