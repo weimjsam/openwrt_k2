@@ -13,6 +13,7 @@ kmod-tcp-bbr uhttpd openssh-sftp-server luci-base luci-proto-ppp luci-mod-admin-
 -odhcp6c -odhcpd-ipv6only \
 python3 python3-pip screen htop \
 relayd luci-proto-relay \
+natflow-boot kmod-natflow kmod-natflow-extra luci-app-mtwifi mt-wifi \
 " CONFIG_IPV6=n CONFIG_KERNEL_CRASHLOG=n CONFIG_KERNEL_DEBUG_INFO=n CONFIG_KERNEL_ELF_CORE=n CONFIG_KERNEL_DEBUG_KERNEL=n CONFIG_STRIP_KERNEL_EXPORTS=y CONFIG_KERNEL_SWAP=n CONFIG_KERNEL_PRINTK=n CONFIG_KERNEL_PRINTK_TIME=n CONFIG_COLLECT_KERNEL_DEBUG=n CONFIG_REPRODUCIBLE_DEBUG_INFO=n
 
 # tc ### tc kmod-ifb kmod-sched kmod-sched-core kmod-netem \
