@@ -1,4 +1,4 @@
-version="23.05.2"
+version="21.02.7"
 mips="mt7621"
 targets="ramips"
 image_name="d-team_newifi-d2"
@@ -9,10 +9,8 @@ cd openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64
 
 make info
 make image PROFILE=${image_name} PACKAGES="\
-kmod-tcp-bbr uhttpd openssh-sftp-server luci-base luci-proto-ppp luci-mod-admin-full luci-theme-bootstrap luci-i18n-base-zh-cn luci-i18n-firewall-zh-cn \
+htop kmod-tcp-bbr uhttpd openssh-sftp-server luci-base luci-proto-ppp luci-mod-admin-full luci-theme-bootstrap luci-i18n-base-zh-cn luci-i18n-firewall-zh-cn \
 -odhcp6c -odhcpd-ipv6only \
-htop \
-libevent2-7 \
 " CONFIG_IPV6=n CONFIG_KERNEL_CRASHLOG=n CONFIG_KERNEL_DEBUG_INFO=n CONFIG_KERNEL_ELF_CORE=n CONFIG_KERNEL_DEBUG_KERNEL=n CONFIG_STRIP_KERNEL_EXPORTS=y CONFIG_KERNEL_SWAP=n CONFIG_KERNEL_PRINTK=n CONFIG_KERNEL_PRINTK_TIME=n CONFIG_COLLECT_KERNEL_DEBUG=n CONFIG_REPRODUCIBLE_DEBUG_INFO=n
 
 # tc ### tc kmod-ifb kmod-sched kmod-sched-core kmod-netem \
@@ -21,7 +19,7 @@ libevent2-7 \
 # mediatek mt7622: xiaomi_redmi-router-ax6s
 # AP ### relayd luci-proto-relay 
 # python ### python3 python3-pip screen 
-# init ### kmod-tcp-bbr uhttpd openssh-sftp-server luci-base luci-proto-ppp luci-mod-admin-full luci-theme-bootstrap luci-i18n-base-zh-cn luci-i18n-firewall-zh-cn 
+# init ### htop kmod-tcp-bbr uhttpd openssh-sftp-server luci-base luci-proto-ppp luci-mod-admin-full luci-theme-bootstrap luci-i18n-base-zh-cn luci-i18n-firewall-zh-cn 
 # smartdns ### smartdns luci-app-smartdns luci-i18n-smartdns-zh-cn
 
 # 21.02.7 ### base-files ca-bundle dropbear fstools libc libgcc libustream-wolfssl logd mtd netifd opkg uci uclient-fetch urandom-seed urngd busybox procd kmod-leds-gpio kmod-gpio-button-hotplug wpad-basic-wolfssl dnsmasq firewall ip6tables iptables kmod-ipt-offload odhcp6c odhcpd-ipv6only ppp ppp-mod-pppoe
