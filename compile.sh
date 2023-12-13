@@ -1,7 +1,7 @@
 version="23.05.2"
-mips="mt7621"
-targets="ramips"
-image_name="d-team_newifi-d2"
+targets="ipq807x"
+mips="generic"
+image_name="redmi_ax6"
 
 # Download and extract the OpenWrt imagebuilder
 wget https://downloads.openwrt.org/releases/${version}/targets/${targets}/${mips}/openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar.xz
@@ -22,6 +22,7 @@ libevent2 iptables-nft iptables-mod-nat-extra \
 # ramips mt7620：phicomm_psg1218a   lenovo_newifi-y1  
 # ramips mt7621：phicomm_k2p   d-team_newifi-d2 
 # mediatek mt7622: xiaomi_redmi-router-ax6s
+# ipq807x  generic: redmi_ax6
 # AP ### relayd luci-proto-relay 
 # python ### python3 python3-pip screen 
 # init ### htop kmod-tcp-bbr uhttpd openssh-sftp-server luci-base luci-proto-ppp luci-mod-admin-full luci-theme-bootstrap luci-i18n-base-zh-cn luci-i18n-firewall-zh-cn 
