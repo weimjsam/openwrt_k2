@@ -18,16 +18,6 @@ htop kmod-tcp-bbr uhttpd openssh-sftp-server luci-base luci-proto-ppp luci-mod-a
 
 # Install redsocks2 plugin
 git clone https://github.com/wltc2005/openwrt-redsocks2.git package/redsocks2
-echo "src-git redsocks2 https://github.com/wltc2005/openwrt-redsocks2.git" >> feeds.conf.default
-./scripts/feeds update -a && ./scripts/feeds install -a
-
-# Install dependencies and compile redsocks2 plugin
-./scripts/feeds update base
-./scripts/feeds install libevent2
-./scripts/feeds install ipset
-make menuconfig V=s
-make package/redsocks2/compile V=s 
-
 
 # tc ### tc kmod-ifb kmod-sched kmod-sched-core kmod-netem \
 # ramips mt7620：phicomm_psg1218a   lenovo_newifi-y1  
