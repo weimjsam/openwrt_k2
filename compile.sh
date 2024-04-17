@@ -1,9 +1,10 @@
-version="21.02.7"
+version="23.05.3"
 targets="ramips"
 mips="mt7621"
 image_name="xiaomi_mi-router-4a-gigabit-v2"
 
 # Download and extract the OpenWrt imagebuilder
+# wget https://downloads.openwrt.org/releases/${version}/targets/${targets}/${mips}/openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar.xz
 wget https://downloads.openwrt.org/releases/${version}/targets/${targets}/${mips}/openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar.xz
 xz -d openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar.xz
 tar -xvf openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar
