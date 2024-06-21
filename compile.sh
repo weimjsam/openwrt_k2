@@ -19,6 +19,7 @@ tc kmod-ifb kmod-sched kmod-sched-core kmod-netem libevent2-7 libopenssl3 \
 -firewall4 firewall -nftables iptables-legacy  ip6tables-legacy  -kmod-nft-offload kmod-ipt-offload \
 " CONFIG_IPV6=n CONFIG_KERNEL_CRASHLOG=n CONFIG_KERNEL_DEBUG_INFO=n CONFIG_KERNEL_ELF_CORE=n CONFIG_KERNEL_DEBUG_KERNEL=n CONFIG_STRIP_KERNEL_EXPORTS=y CONFIG_KERNEL_SWAP=n CONFIG_KERNEL_PRINTK=n CONFIG_KERNEL_PRINTK_TIME=n CONFIG_COLLECT_KERNEL_DEBUG=n CONFIG_REPRODUCIBLE_DEBUG_INFO=n
 
+
 # ramips mt7620：phicomm_psg1218a   lenovo_newifi-y1  
 # ramips mt7621：phicomm_k2p、d-team_newifi-d2、xiaomi_mi-router-4a-gigabit
 # mediatek mt7622: xiaomi_redmi-router-ax6s
