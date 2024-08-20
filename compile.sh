@@ -1,7 +1,7 @@
 version="23.05.4"
 targets="ramips"
 mips="mt7621"
-image_name="xiaomi_mi-router-4a-gigabit"
+image_name="xiaomi_mi-router-4a-gigabit-v2"
 
 # Download and extract the OpenWrt imagebuilder
 # wget https://downloads.openwrt.org/releases/${version}/targets/${targets}/${mips}/openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar.xz
@@ -21,7 +21,7 @@ libevent2-7 libopenssl3 dnsmasq \
 
 
 # ramips mt7620：phicomm_psg1218a   lenovo_newifi-y1  
-# ramips mt7621：phicomm_k2p、d-team_newifi-d2、xiaomi_mi-router-4a-gigabit
+# ramips mt7621：phicomm_k2p、d-team_newifi-d2、xiaomi_mi-router-4a-gigabit-v2
 # mediatek mt7622: xiaomi_redmi-router-ax6s
 # ipq807x  generic: redmi_ax6
 
