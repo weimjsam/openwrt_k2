@@ -14,7 +14,7 @@ cd openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64
 # Install the necessary packages and plugins
 make info
 make image PROFILE=${image_name} PACKAGES="\
-htop uhttpd openssh-sftp-server luci-base luci-proto-ppp luci-mod-admin-full luci-theme-bootstrap luci-i18n-base-zh-cn luci-i18n-firewall-zh-cn luci-i18n-opkg-zh-cn \
+htop uhttpd openssh-sftp-server luci-base luci-proto-ppp luci-mod-admin-full luci-theme-bootstrap luci-i18n-base-zh-cn luci-i18n-firewall-zh-cn \
 -luci-app-ddns -ddns-scripts -ddns-scripts_aliyun -ddns-scripts_dnspod -qos-scripts -kmod-usb-ehci -kmod-usb-printer -kmod-usb-storage -kmod-usb-storage-extras -kmod-usb-uhci -kmod-usb-core -kmod-usb2 -kmod-usb3 -kmod-usb-ohci -kmod-ledtrig-usbdev -ipv6helper -dnsmasq_full_dhcpv6 -ip6tables -ip6tables-extra -ip6tables-mod-nat -kmod-ip6tables-extra -kmod-ip6tables -kmod-nf-conntrack6 -kmod-nf-ipt6 -kmod-nf-reject6 -libip6tc2 -odhcp6c -odhcpd-ipv6only -luci-proto-ipv6 -kmod-ebtables-ipv6 -kmod-fou6 -kmod-ip6-tunnel -kmod-gre6 -kmod-6lowpan -kmod-ipsec6 -kmod-ip6-vti -kmod-ipt-nat6 -kmod-ipt-raw6 -kmod-iptunnel6 -kmod-nf-nat6 -kmod-nf-reject6 -kmod-nft-nat6 -kmod-udptunnel6 -kmod-sit -firewall4 -nftables -kmod-nft-offload\
 -kmod-nf-nat -kmod-nf-conntrack-kmod-nf-flow-kmod-nf-ipt-kmod-nf-ipt6-kmod-nf-log-kmod-nf-log6-kmod-nf-reject-kmod-nf-reject6 \
 -firewall4 -kmod-nft-offload -nftables firewall iptables-legacy ip6tables-legacy kmod-ipt-offload kmod-ipt-nat kmod-ipt-conntrack \
@@ -31,7 +31,7 @@ libevent2-7 libopenssl3 dnsmasq tc-full kmod-ifb kmod-sched kmod-sched-core kmod
 # tc ### tc kmod-ifb kmod-sched kmod-sched-core kmod-netem \
 # AP ### relayd luci-proto-relay 
 # python ### python3 python3-pip screen 
-# init ### htop kmod-tcp-bbr uhttpd openssh-sftp-server luci-base luci-proto-ppp luci-mod-admin-full luci-theme-bootstrap luci-i18n-base-zh-cn luci-i18n-firewall-zh-cn 
+# init ### htop kmod-tcp-bbr uhttpd openssh-sftp-server luci-base luci-proto-ppp luci-mod-admin-full luci-theme-bootstrap luci-i18n-base-zh-cn luci-i18n-firewall-zh-cn luci-i18n-opkg-zh-cn 
 # smartdns ### smartdns luci-app-smartdns luci-i18n-smartdns-zh-cn
 
 # 21.02.7 ### base-files ca-bundle dropbear fstools libc libgcc libustream-wolfssl logd mtd netifd opkg uci uclient-fetch urandom-seed urngd busybox procd kmod-leds-gpio kmod-gpio-button-hotplug wpad-basic-wolfssl dnsmasq firewall ip6tables iptables kmod-ipt-offload odhcp6c odhcpd-ipv6only ppp ppp-mod-pppoe
