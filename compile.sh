@@ -1,7 +1,7 @@
 version="24.10.2"
 targets="ramips"
 mips="mt7621"
-image_name="d-team_newifi-d2"
+image_name="xiaomi_mi-router-4a-gigabit-v2"
 
 # Download and extract the OpenWrt imagebuilder
 # wget https://downloads.openwrt.org/releases/${version}/targets/${targets}/${mips}/openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar.xz 
