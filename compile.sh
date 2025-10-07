@@ -1,7 +1,7 @@
 version="24.10.3"
-targets="mediatek"
-mips="mt7622"
-image_name="xiaomi_redmi-router-ax6s"
+targets="ramips"
+mips="mt7621"
+image_name="xiaomi_mi-router-4a-gigabit-v2"
 
 # Download and extract the OpenWrt imagebuilder
 # wget https://downloads.openwrt.org/releases/${version}/targets/${targets}/${mips}/openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar.xz 
