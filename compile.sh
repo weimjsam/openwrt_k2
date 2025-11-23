@@ -1,7 +1,7 @@
-version="24.10.3"
-targets="ipq807x"
-mips="generic"
-image_name="redmi_ax6"
+version="24.10.4"
+targets="ramips"
+mips="mt7621"
+image_name="d-team_newifi-d2"
 
 # Download and extract the OpenWrt imagebuilder
 # wget https://downloads.openwrt.org/releases/${version}/targets/${targets}/${mips}/openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar.xz 
