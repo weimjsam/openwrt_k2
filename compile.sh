@@ -1,7 +1,7 @@
-version="24.10.4"
-targets="mediatek"
-mips="mt7622"
-image_name="xiaomi_redmi-router-ax6s"
+version="24.10.5"
+targets="ramips"
+mips="mt7621"
+image_name="xiaomi_mi-router-4a-gigabit"
 
 # Download and extract the OpenWrt imagebuilder
 # wget https://downloads.openwrt.org/releases/${version}/targets/${targets}/${mips}/openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar.xz 
@@ -29,7 +29,7 @@ mwan3 luci-app-mwan3 kmod-macvlan \
 
 # htop uhttpd openssh-sftp-server luci-base luci-proto-ppp luci-mod-admin-full luci-theme-bootstrap luci-i18n-base-zh-cn luci-i18n-firewall-zh-cn
 # ramips mt7620：phicomm_psg1218a、lenovo_newifi-y1  
-# ramips mt7621：phicomm_k2p、d-team_newifi-d2、xiaomi_mi-router-4a-gigabit-v2
+# ramips mt7621：phicomm_k2p、d-team_newifi-d2、xiaomi_mi-router-4a-gigabit-v2、xiaomi_mi-router-4a-gigabit
 # mediatek mt7622: xiaomi_redmi-router-ax6s
 # ipq807x  generic: redmi_ax6
 
