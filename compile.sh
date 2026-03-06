@@ -14,6 +14,8 @@ cd openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64
 # Install the necessary packages and plugins 
 make info
 make image PROFILE=${image_name} PACKAGES="\
+KERNEL_PATCHVER=6.6 \
+KERNEL_VERSION=6.6.119 \
 htop uhttpd openssh-sftp-server luci-base luci-proto-ppp luci-mod-admin-full luci-theme-bootstrap luci-i18n-base-zh-cn luci-i18n-firewall-zh-cn bash iptables dnsmasq-full \
 curl ca-bundle ipset ip-full iptables-mod-tproxy iptables-mod-extra ruby ruby-yaml kmod-tun kmod-inet-diag unzip luci-compat luci \
 -luci-app-ddns -ddns-scripts -ddns-scripts_aliyun -ddns-scripts_dnspod -qos-scripts -kmod-usb-ehci -kmod-usb-printer -kmod-usb-storage \
