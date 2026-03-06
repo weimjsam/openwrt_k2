@@ -1,4 +1,4 @@
-version="24.10.5"
+version="25.12.0"
 targets="mediatek"
 mips="mt7622"
 image_name="xiaomi_redmi-router-ax6s"
