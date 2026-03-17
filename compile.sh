@@ -1,6 +1,3 @@
-openwrt 在线编译
-
-
 version="25.12.0"
 targets="ramips"
 mips="mt7621"  
