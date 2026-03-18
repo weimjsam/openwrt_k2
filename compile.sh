@@ -11,11 +11,6 @@ zstd -d openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar.zst
 tar -xvf openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar
 cd openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64
 
-# 集成fullconenat
-echo "src-git fullconenat https://github.com/LGA1150/openwrt-fullconenat.git" >> feeds.conf
-./scripts/feeds update fullconenat && ./scripts/feeds install -a -p fullconenat
-
-
 # Install the necessary packages and plugins 
 make info
 make image PROFILE=${image_name} PACKAGES="\
