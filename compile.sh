@@ -11,6 +11,11 @@ zstd -d openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar.zst
 tar -xvf openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar
 cd openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64
 
+# 集成fullconenat
+echo "src-git fullconenat https://github.com/LGA1150/openwrt-fullconenat.git" >> feeds.conf
+./scripts/feeds update fullconenat && ./scripts/feeds install -a -p fullconenat
+
+
 # Install the necessary packages and plugins 
 make info
 make image PROFILE=${image_name} PACKAGES="\
@@ -26,7 +31,7 @@ curl ca-bundle ipset ip-full iptables-mod-tproxy iptables-mod-extra ruby ruby-ya
 firewall iptables-legacy ip6tables-legacy kmod-ipt-offload kmod-ipt-nat kmod-ipt-conntrack \
 libevent2-7 libopenssl3 tc-full kmod-ifb kmod-sched kmod-sched-core kmod-netem iptables-mod-conntrack-extra kmod-ipt-raw \
 mwan3 luci-app-mwan3 kmod-macvlan \
-iptables-mod-fullcone luci-app-firewall \
+luci-app-fullconenat kmod-fullconenat iptables-mod-fullconenat \
 " CONFIG_IPV6=n CONFIG_KERNEL_CRASHLOG=n CONFIG_KERNEL_DEBUG_INFO=n CONFIG_KERNEL_ELF_CORE=n CONFIG_KERNEL_DEBUG_KERNEL=n CONFIG_STRIP_KERNEL_EXPORTS=y CONFIG_KERNEL_SWAP=n CONFIG_KERNEL_PRINTK=n CONFIG_KERNEL_PRINTK_TIME=n CONFIG_COLLECT_KERNEL_DEBUG=n CONFIG_REPRODUCIBLE_DEBUG_INFO=n CONFIG_OPENSSL_ENABLE_TLS1_2=y CONFIG_OPENSSL_ENABLE_TLS1_3=y CONFIG_OPENSSL_ENABLE_ALL_CIPHERS=y CONFIG_OPENSSL_ENABLE_ALL_DIGESTS=y CONFIG_OPENSSL_SECLEVEL=1 CONFIG_CRYPTO_USER_API_HASH=n CONFIG_CRYPTO_USER_API_SKCIPHER=n CONFIG_PACKAGE_ca-certificates=y CONFIG_PACKAGE_ca-bundle=y CONFIG_PACKAGE_openssl-util=y CONFIG_PACKAGE_curl=y CONFIG_PACKAGE_curl-nss=n CONFIG_PACKAGE_curl-openssl=y
 
 # htop uhttpd openssh-sftp-server luci-base luci-proto-ppp luci-mod-admin-full luci-theme-bootstrap luci-i18n-base-zh-cn luci-i18n-firewall-zh-cn
