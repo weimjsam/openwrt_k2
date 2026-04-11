@@ -1,7 +1,7 @@
 version="25.12.2"
-targets="mediatek"
-mips="mt7622"  
-image_name="xiaomi_redmi-router-ax6s"
+targets="ramips"
+mips="mt7621"  
+image_name="d-team_newifi-d2"
 
 # Download and extract the OpenWrt imagebuilder
 # wget https://downloads.openwrt.org/releases/${version}/targets/${targets}/${mips}/openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar.xz 
@@ -11,6 +11,17 @@ zstd -d openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar.zst
 tar -xvf openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar
 cd openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64
 
+
+# 先更新 feeds（LuCI 补丁需要）
+./scripts/feeds update -a
+./scripts/feeds install -a
+
+# 一键应用所有补丁
+curl -sSL https://raw.githubusercontent.com/mufeng05/openwrt-sonic-fullcone/master/add_sonic_fullcone.sh | bash
+
+# 编译
+make menuconfig   # 无需额外勾选，fullcone 编译进 nft_masq 模块
+make -j$(nproc)
 
 
 # Install the necessary packages and plugins 
