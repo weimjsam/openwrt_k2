@@ -12,18 +12,6 @@ tar -xvf openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar
 cd openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64
 
 
-# 先更新 feeds（LuCI 补丁需要）
-./scripts/feeds update -a
-./scripts/feeds install -a
-
-# 一键应用所有补丁
-curl -sSL https://raw.githubusercontent.com/mufeng05/openwrt-sonic-fullcone/master/add_sonic_fullcone.sh | bash
-
-# 编译
-make menuconfig   # 无需额外勾选，fullcone 编译进 nft_masq 模块
-make -j$(nproc)
-
-
 # Install the necessary packages and plugins 
 make info
 make image PROFILE=${image_name} PACKAGES="\
@@ -36,10 +24,11 @@ curl ca-bundle ipset ip-full iptables-mod-tproxy iptables-mod-extra ruby ruby-ya
 -kmod-ipt-nat6 -kmod-ipt-raw6 -kmod-iptunnel6 -kmod-nf-nat6 -kmod-nf-reject6 -kmod-nft-nat6 -kmod-udptunnel6 -kmod-sit \
 -firewall4 -nftables -kmod-nft-offload -kmod-nft-offload -nftables \
 -kmod-nf-nat -kmod-nf-conntrack -kmod-nf-flow -kmod-nf-ipt -kmod-nf-ipt6 -kmod-nf-log -kmod-nf-log6 -kmod-nf-reject -kmod-nf-reject6 -dnsmasq \
-firewall iptables-legacy ip6tables-legacy kmod-ipt-offload kmod-ipt-nat kmod-ipt-conntrack \
-libevent2-7 libopenssl3 tc-full kmod-ifb kmod-sched kmod-sched-core kmod-netem iptables-mod-conntrack-extra kmod-ipt-raw \
+firewall iptables-legacy kmod-ipt-offload kmod-ipt-nat kmod-ipt-conntrack \
+libevent2-7 libopenssl3 \
 mwan3 luci-app-mwan3 kmod-macvlan \
 " CONFIG_IPV6=n CONFIG_KERNEL_CRASHLOG=n CONFIG_KERNEL_DEBUG_INFO=n CONFIG_KERNEL_ELF_CORE=n CONFIG_KERNEL_DEBUG_KERNEL=n CONFIG_STRIP_KERNEL_EXPORTS=y CONFIG_KERNEL_SWAP=n CONFIG_KERNEL_PRINTK=n CONFIG_KERNEL_PRINTK_TIME=n CONFIG_COLLECT_KERNEL_DEBUG=n CONFIG_REPRODUCIBLE_DEBUG_INFO=n CONFIG_OPENSSL_ENABLE_TLS1_2=y CONFIG_OPENSSL_ENABLE_TLS1_3=y CONFIG_OPENSSL_ENABLE_ALL_CIPHERS=y CONFIG_OPENSSL_ENABLE_ALL_DIGESTS=y CONFIG_OPENSSL_SECLEVEL=1 CONFIG_CRYPTO_USER_API_HASH=n CONFIG_CRYPTO_USER_API_SKCIPHER=n CONFIG_PACKAGE_ca-certificates=y CONFIG_PACKAGE_ca-bundle=y CONFIG_PACKAGE_openssl-util=y CONFIG_PACKAGE_curl=y CONFIG_PACKAGE_curl-nss=n CONFIG_PACKAGE_curl-openssl=y
+
 
 # ipq807x  generic: redmi_ax6
 # mediatek mt7622: xiaomi_redmi-router-ax6s
