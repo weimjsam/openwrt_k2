@@ -1,7 +1,7 @@
 version="25.12.2"
-targets="mediatek"
-mips="mt7622"  
-image_name="xiaomi_redmi-router-ax6s"
+targets="ramips"
+mips="mt7621"  
+image_name="d-team_newifi-d2"
 
 # Download and extract the OpenWrt imagebuilder
 # wget https://downloads.openwrt.org/releases/${version}/targets/${targets}/${mips}/openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar.xz 
@@ -10,10 +10,6 @@ wget https://downloads.openwrt.org/releases/${version}/targets/${targets}/${mips
 zstd -d openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar.zst
 tar -xvf openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar
 cd openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64
-
-mkdir -p ./build_dir/target-aarch64_cortex-a53_musl/linux-mediatek_mt7622/
-wget https://github.com/weimjsam/openwrt_k2/raw/refs/heads/master/image-mt7622-xiaomi-redmi-router-ax6s.dtb \
-  -O ./build_dir/target-aarch64_cortex-a53_musl/linux-mediatek_mt7622/image-mt7622-xiaomi-redmi-router-ax6s.dtb
 
 # Install the necessary packages and plugins 
 make info
@@ -25,9 +21,12 @@ curl ca-bundle ipset ip-full iptables-mod-tproxy iptables-mod-extra ruby ruby-ya
 -ip6tables -ip6tables-extra -ip6tables-mod-nat -kmod-ip6tables-extra -kmod-ip6tables -kmod-nf-conntrack6 -kmod-nf-ipt6 -kmod-nf-reject6 -libip6tc2 \
 -odhcp6c -odhcpd-ipv6only -luci-proto-ipv6 -kmod-ebtables-ipv6 -kmod-fou6 -kmod-ip6-tunnel -kmod-gre6 -kmod-6lowpan -kmod-ipsec6 -kmod-ip6-vti \
 -kmod-ipt-nat6 -kmod-ipt-raw6 -kmod-iptunnel6 -kmod-nf-nat6 -kmod-nf-reject6 -kmod-nft-nat6 -kmod-udptunnel6 -kmod-sit \
+-firewall4 -nftables -kmod-nft-offload -kmod-nft-offload -nftables \
 -kmod-nf-nat -kmod-nf-conntrack -kmod-nf-flow -kmod-nf-ipt -kmod-nf-ipt6 -kmod-nf-log -kmod-nf-log6 -kmod-nf-reject -kmod-nf-reject6 -dnsmasq \
+firewall iptables-legacy ip6tables-legacy kmod-ipt-offload kmod-ipt-nat kmod-ipt-conntrack \
+libevent2-7 iptables-nft iptables-mod-nat-extra libopenssl3 \
+mwan3 luci-app-mwan3 kmod-macvlan \
 " CONFIG_IPV6=n CONFIG_KERNEL_CRASHLOG=n CONFIG_KERNEL_DEBUG_INFO=n CONFIG_KERNEL_ELF_CORE=n CONFIG_KERNEL_DEBUG_KERNEL=n CONFIG_STRIP_KERNEL_EXPORTS=y CONFIG_KERNEL_SWAP=n CONFIG_KERNEL_PRINTK=n CONFIG_KERNEL_PRINTK_TIME=n CONFIG_COLLECT_KERNEL_DEBUG=n CONFIG_REPRODUCIBLE_DEBUG_INFO=n CONFIG_OPENSSL_ENABLE_TLS1_2=y CONFIG_OPENSSL_ENABLE_TLS1_3=y CONFIG_OPENSSL_ENABLE_ALL_CIPHERS=y CONFIG_OPENSSL_ENABLE_ALL_DIGESTS=y CONFIG_OPENSSL_SECLEVEL=1 CONFIG_CRYPTO_USER_API_HASH=n CONFIG_CRYPTO_USER_API_SKCIPHER=n CONFIG_PACKAGE_ca-certificates=y CONFIG_PACKAGE_ca-bundle=y CONFIG_PACKAGE_openssl-util=y CONFIG_PACKAGE_curl=y CONFIG_PACKAGE_curl-nss=n CONFIG_PACKAGE_curl-openssl=y
-
 
 # ipq807x  generic: redmi_ax6
 # mediatek mt7622: xiaomi_redmi-router-ax6s
@@ -35,8 +34,11 @@ curl ca-bundle ipset ip-full iptables-mod-tproxy iptables-mod-extra ruby ruby-ya
 # ramips mt7620：phicomm_psg1218a、lenovo_newifi-y1  
 # ramips mt7621：phicomm_k2p、d-team_newifi-d2、xiaomi_mi-router-4a-gigabit-v2、xiaomi_mi-router-4a-gigabit
 
+# fw4 : -firewall4 -nftables -kmod-nft-offload -kmod-nft-offload -nftables \
+# fw3 : firewall iptables-legacy ip6tables-legacy kmod-ipt-offload kmod-ipt-nat kmod-ipt-conntrack \
+# mwan3 : mwan3 luci-app-mwan3 kmod-macvlan \
 
-# proxy ### libevent2 iptables-nft iptables-mod-nat-extra \
+# proxy ### libevent2-7 iptables-nft iptables-mod-nat-extra libopenssl3 \
 # tc ### tc kmod-ifb kmod-sched kmod-sched-core kmod-netem \
 # AP ### relayd luci-proto-relay \
 # python ### python3 python3-pip screen \
