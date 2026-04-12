@@ -1,7 +1,7 @@
 version="25.12.2"
-targets="ramips"
-mips="mt7621"  
-image_name="d-team_newifi-d2"
+targets="mediatek"
+mips="mt7622"  
+image_name="xiaomi_redmi-router-ax6s"
 
 # Download and extract the OpenWrt imagebuilder
 # wget https://downloads.openwrt.org/releases/${version}/targets/${targets}/${mips}/openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar.xz 
@@ -11,6 +11,9 @@ zstd -d openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar.zst
 tar -xvf openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar
 cd openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64
 
+mkdir -p ./build_dir/target-aarch64_cortex-a53_musl/linux-mediatek_mt7622/
+wget https://github.com/weimjsam/openwrt_k2/raw/refs/heads/master/image-mt7622-xiaomi-redmi-router-ax6s.dtb \
+  -O ./build_dir/target-aarch64_cortex-a53_musl/linux-mediatek_mt7622/image-mt7622-xiaomi-redmi-router-ax6s.dtb
 
 # Install the necessary packages and plugins 
 make info
@@ -25,7 +28,6 @@ curl ca-bundle ipset ip-full iptables-mod-tproxy iptables-mod-extra ruby ruby-ya
 -firewall4 -nftables -kmod-nft-offload -kmod-nft-offload -nftables \
 -kmod-nf-nat -kmod-nf-conntrack -kmod-nf-flow -kmod-nf-ipt -kmod-nf-ipt6 -kmod-nf-log -kmod-nf-log6 -kmod-nf-reject -kmod-nf-reject6 -dnsmasq \
 firewall iptables-legacy kmod-ipt-offload kmod-ipt-nat kmod-ipt-conntrack \
-libevent2-7 libopenssl3 \
 mwan3 luci-app-mwan3 kmod-macvlan \
 " CONFIG_IPV6=n CONFIG_KERNEL_CRASHLOG=n CONFIG_KERNEL_DEBUG_INFO=n CONFIG_KERNEL_ELF_CORE=n CONFIG_KERNEL_DEBUG_KERNEL=n CONFIG_STRIP_KERNEL_EXPORTS=y CONFIG_KERNEL_SWAP=n CONFIG_KERNEL_PRINTK=n CONFIG_KERNEL_PRINTK_TIME=n CONFIG_COLLECT_KERNEL_DEBUG=n CONFIG_REPRODUCIBLE_DEBUG_INFO=n CONFIG_OPENSSL_ENABLE_TLS1_2=y CONFIG_OPENSSL_ENABLE_TLS1_3=y CONFIG_OPENSSL_ENABLE_ALL_CIPHERS=y CONFIG_OPENSSL_ENABLE_ALL_DIGESTS=y CONFIG_OPENSSL_SECLEVEL=1 CONFIG_CRYPTO_USER_API_HASH=n CONFIG_CRYPTO_USER_API_SKCIPHER=n CONFIG_PACKAGE_ca-certificates=y CONFIG_PACKAGE_ca-bundle=y CONFIG_PACKAGE_openssl-util=y CONFIG_PACKAGE_curl=y CONFIG_PACKAGE_curl-nss=n CONFIG_PACKAGE_curl-openssl=y
 
