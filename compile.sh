@@ -5,7 +5,13 @@ image_name="xiaomi_mi-router-4a-gigabit-v2"
 
 # Download and extract the OpenWrt imagebuilder
 # wget https://downloads.openwrt.org/releases/${version}/targets/${targets}/${mips}/openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar.xz 
+
+# openwrt 官方版
 wget https://downloads.openwrt.org/releases/${version}/targets/${targets}/${mips}/openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar.zst
+
+# immortalwrt 三方分支
+#wget https://downloads.immortalwrt.org/releases/${version}/targets/${targets}/${mips}/immortalwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar.zst
+
 #xz -d openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar.xz
 zstd -d openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar.zst
 tar -xvf openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar
@@ -23,10 +29,11 @@ curl ca-bundle ipset ip-full iptables-mod-tproxy iptables-mod-extra ruby ruby-ya
 -kmod-ipt-nat6 -kmod-ipt-raw6 -kmod-iptunnel6 -kmod-nf-nat6 -kmod-nf-reject6 -kmod-nft-nat6 -kmod-udptunnel6 -kmod-sit \
 -firewall4 -nftables -kmod-nft-offload -kmod-nft-offload -nftables \
 -kmod-nf-nat -kmod-nf-conntrack -kmod-nf-flow -kmod-nf-ipt -kmod-nf-ipt6 -kmod-nf-log -kmod-nf-log6 -kmod-nf-reject -kmod-nf-reject6 -dnsmasq \
-firewall iptables-legacy kmod-ipt-offload kmod-ipt-nat kmod-ipt-conntrack \
-libevent2-7 libopenssl3 iptables-mod-conntrack-extra kmod-ipt-raw \
+firewall iptables-legacy kmod-ipt-offload kmod-ipt-nat kmod-ipt-conntrack kmod-ipt-conntrack-extra iptables-mod-conntrack-extra kmod-ipt-raw \
+kmod-mtk-hnat kmod-mtkhnat kmod-crypto-hw-safexcel kmod-tcp-bbr \
+libevent2-7 libopenssl3 \
 mwan3 luci-app-mwan3 kmod-macvlan \
-" CONFIG_IPV6=n CONFIG_KERNEL_CRASHLOG=n CONFIG_KERNEL_DEBUG_INFO=n CONFIG_KERNEL_ELF_CORE=n CONFIG_KERNEL_DEBUG_KERNEL=n CONFIG_STRIP_KERNEL_EXPORTS=y CONFIG_KERNEL_SWAP=n CONFIG_KERNEL_PRINTK=n CONFIG_KERNEL_PRINTK_TIME=n CONFIG_COLLECT_KERNEL_DEBUG=n CONFIG_REPRODUCIBLE_DEBUG_INFO=n CONFIG_OPENSSL_ENABLE_TLS1_2=y CONFIG_OPENSSL_ENABLE_TLS1_3=y CONFIG_OPENSSL_ENABLE_ALL_CIPHERS=y CONFIG_OPENSSL_ENABLE_ALL_DIGESTS=y CONFIG_OPENSSL_SECLEVEL=1 CONFIG_CRYPTO_USER_API_HASH=n CONFIG_CRYPTO_USER_API_SKCIPHER=n CONFIG_PACKAGE_ca-certificates=y CONFIG_PACKAGE_ca-bundle=y CONFIG_PACKAGE_openssl-util=y CONFIG_PACKAGE_curl=y CONFIG_PACKAGE_curl-nss=n CONFIG_PACKAGE_curl-openssl=y
+" CONFIG_DEBUG_FS=n CONFIG_PRINTK=n CONFIG_IPV6=n CONFIG_KERNEL_CRASHLOG=n CONFIG_KERNEL_DEBUG_INFO=n CONFIG_KERNEL_ELF_CORE=n CONFIG_KERNEL_DEBUG_KERNEL=n CONFIG_STRIP_KERNEL_EXPORTS=y CONFIG_KERNEL_SWAP=n CONFIG_KERNEL_PRINTK=n CONFIG_KERNEL_PRINTK_TIME=n CONFIG_COLLECT_KERNEL_DEBUG=n CONFIG_REPRODUCIBLE_DEBUG_INFO=n CONFIG_OPENSSL_ENABLE_TLS1_2=y CONFIG_OPENSSL_ENABLE_TLS1_3=y CONFIG_OPENSSL_ENABLE_ALL_CIPHERS=y CONFIG_OPENSSL_ENABLE_ALL_DIGESTS=y CONFIG_OPENSSL_SECLEVEL=1 CONFIG_CRYPTO_USER_API_HASH=n CONFIG_CRYPTO_USER_API_SKCIPHER=n CONFIG_PACKAGE_ca-certificates=y CONFIG_PACKAGE_ca-bundle=y CONFIG_PACKAGE_openssl-util=y CONFIG_PACKAGE_curl=y CONFIG_PACKAGE_curl-nss=n CONFIG_PACKAGE_curl-openssl=y CONFIG_RPS=y CONFIG_RFS_ACCEL=y
 
 # ipq807x  generic: redmi_ax6
 # mediatek mt7622: xiaomi_redmi-router-ax6s
