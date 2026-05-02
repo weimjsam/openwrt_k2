@@ -1,7 +1,7 @@
 version="25.12.2"
 targets="ramips"
 mips="mt7621"  
-image_name="xiaomi_mi-router-4a-gigabit-v2"
+image_name="d-team_newifi-d2"
 
 # Download and extract the OpenWrt imagebuilder
 # wget https://downloads.openwrt.org/releases/${version}/targets/${targets}/${mips}/openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar.xz 
@@ -19,7 +19,7 @@ cd openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64
 
 # Install the necessary packages and plugins 
 make info
-make image PROFILE=${image_name} PACKAGES="\
+make -j$(nproc) image PROFILE=${image_name} PACKAGES="\
 htop uhttpd openssh-sftp-server luci-base luci-proto-ppp luci-mod-admin-full luci-theme-bootstrap luci-i18n-base-zh-cn luci-i18n-firewall-zh-cn bash iptables dnsmasq-full \
 curl ca-bundle ipset ip-full iptables-mod-tproxy iptables-mod-extra ruby ruby-yaml kmod-tun kmod-inet-diag unzip luci-compat luci \
 -luci-app-ddns -ddns-scripts -ddns-scripts_aliyun -ddns-scripts_dnspod -qos-scripts -kmod-usb-ehci -kmod-usb-printer -kmod-usb-storage \
