@@ -7,15 +7,15 @@ image_name="d-team_newifi-d2"
 # wget https://downloads.openwrt.org/releases/${version}/targets/${targets}/${mips}/openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar.xz 
 
 # openwrt 官方版
-wget https://downloads.openwrt.org/releases/${version}/targets/${targets}/${mips}/openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar.zst
+#wget https://downloads.openwrt.org/releases/${version}/targets/${targets}/${mips}/openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar.zst
 
 # immortalwrt 三方分支
-#wget https://downloads.immortalwrt.org/releases/${version}/targets/${targets}/${mips}/immortalwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar.zst
+wget https://downloads.immortalwrt.org/releases/${version}/targets/${targets}/${mips}/immortalwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar.zst
 
 #xz -d openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar.xz
-zstd -d openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar.zst
-tar -xvf openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar
-cd openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64
+zstd -d immortalwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar.zst
+tar -xvf immortalwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar
+cd immortalwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64
 
 # Install the necessary packages and plugins 
 make info
