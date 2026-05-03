@@ -1,4 +1,4 @@
-version="24.10.6"
+version="25.12.2"
 targets="ramips"
 mips="mt7621"  
 image_name="d-team_newifi-d2"
