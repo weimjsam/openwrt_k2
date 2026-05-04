@@ -17,6 +17,10 @@ zstd -d openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar.zst
 tar -xvf openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar
 cd openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64
 
+mkdir -p ./build_dir/target-mipsel_24kc_musl/linux-ramips_mt7621/
+wget https://github.com/weimjsam/openwrt-rom/raw/refs/heads/main/buildsh/d-team_newifi-d2.dtb \
+  -O ./build_dir/target-mipsel_24kc_musl/linux-ramips_mt7621/image-mt7621_d-team_newifi-d2.dtb
+
 # Install the necessary packages and plugins 
 make info
 make -j$(nproc) image PROFILE=${image_name} PACKAGES="\
