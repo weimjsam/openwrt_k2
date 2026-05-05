@@ -18,6 +18,7 @@ tar -xvf openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar
 cd openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64
 
 
+
 mkdir -p ./build_dir/target-aarch64_cortex-a53_musl/linux-mediatek_mt7622/
 wget https://github.com/weimjsam/openwrt-rom/raw/refs/heads/main/buildsh/ax6s.dtb \
   -O ./build_dir/target-aarch64_cortex-a53_musl/linux-mediatek_mt7622/image-mt7622-xiaomi-redmi-router-ax6s.dtb
