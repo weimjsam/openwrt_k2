@@ -27,7 +27,7 @@ wget https://github.com/weimjsam/openwrt-rom/raw/refs/heads/main/buildsh/d-team_
 make info
 make -j$(nproc) image PROFILE=${image_name} PACKAGES="\
 htop uhttpd openssh-sftp-server luci-base luci-proto-ppp luci-mod-admin-full luci-theme-bootstrap luci-i18n-base-zh-cn luci-i18n-firewall-zh-cn bash dnsmasq \
-curl ca-bundle kmod-tun kmod-inet-diag unzip luci-compat luci \
+curl ca-bundle unzip luci \
 luci-app-mwan3 mwan3 kmod-macvlan kmod-tcp-bbr libevent2-7 libopenssl3 \
 -ddns-scripts -ddns-scripts_aliyun -ddns-scripts_dnspod -ip6t_REJECT -ip6tables -ip6tables-extra -ip6tables-mod-nat -ipv6helper \
 -iptables-nft -kmod-6lowpan -kmod-ebtables-ipv6 -kmod-fou6 -kmod-gre6 -kmod-ip6-tunnel -kmod-ip6-vti -kmod-ip6tables -kmod-ip6tables-extra -kmod-ipsec6 \
@@ -38,6 +38,7 @@ luci-app-mwan3 mwan3 kmod-macvlan kmod-tcp-bbr libevent2-7 libopenssl3 \
 -nf_reject_ipv6 -nf_tproxy_ipv6 -nft_reject_ipv6 -odhcp6c -odhcpd-ipv6only -qos-scripts -xtables-nft-multi \
 " CONFIG_NFT_REJECT_IPV6=n CONFIG_NF_TABLES_IPV6=n CONFIG_NF_REJECT_IPV6=n CONFIG_IP6_NF_IPTABLES=n CONFIG_NF_DEFRAG_IPV6=n CONFIG_NF_CONNTRACK_IPV6=n CONFIG_IP6_NF_FILTER=n CONFIG_SLUB_DEBUG=n CONFIG_BUG=n CONFIG_KALLSYMS=n CONFIG_NF_TABLES=n CONFIG_DEBUG_FS=n CONFIG_PRINTK=n CONFIG_IPV6=n CONFIG_KERNEL_CRASHLOG=n CONFIG_KERNEL_DEBUG_INFO=n CONFIG_KERNEL_ELF_CORE=n CONFIG_KERNEL_DEBUG_KERNEL=n CONFIG_STRIP_KERNEL_EXPORTS=y CONFIG_KERNEL_SWAP=n CONFIG_KERNEL_PRINTK=n CONFIG_KERNEL_PRINTK_TIME=n CONFIG_COLLECT_KERNEL_DEBUG=n CONFIG_REPRODUCIBLE_DEBUG_INFO=n CONFIG_OPENSSL_ENABLE_TLS1_2=y CONFIG_OPENSSL_ENABLE_TLS1_3=y CONFIG_OPENSSL_ENABLE_ALL_CIPHERS=y CONFIG_OPENSSL_ENABLE_ALL_DIGESTS=y CONFIG_OPENSSL_SECLEVEL=1 CONFIG_CRYPTO_USER_API_HASH=n CONFIG_CRYPTO_USER_API_SKCIPHER=n CONFIG_PACKAGE_ca-certificates=y CONFIG_PACKAGE_ca-bundle=y CONFIG_PACKAGE_openssl-util=y CONFIG_PACKAGE_curl=y CONFIG_PACKAGE_curl-nss=n CONFIG_PACKAGE_curl-openssl=y CONFIG_RPS=y CONFIG_RFS_ACCEL=y
 
+# curl ca-bundle kmod-tun kmod-inet-diag unzip luci-compat luci \
 # curl ca-bundle ipset ip-full iptables-mod-tproxy iptables-mod-extra ruby ruby-yaml kmod-tun kmod-inet-diag unzip luci-compat luci dnsmasq-full \
 # ipq807x  generic: redmi_ax6
 # mediatek mt7622: xiaomi_redmi-router-ax6s
