@@ -33,8 +33,7 @@ libevent2-7 libopenssl3 kmod-ipt-nat \
 -nf_reject_ipv6 -nf_tproxy_ipv6 -nft_reject_ipv6 -odhcp6c -odhcpd-ipv6only -qos-scripts \
 ipset libipset13 kmod-ipt-ipset iptables-mod-conntrack-extra kmod-ipt-conntrack-extra kmod-ipt-conntrack kmod-nf-conncount iptables-mod-ipopt kmod-ipt-ipopt \
 ip-tiny iptables-nft kmod-ipt-core xtables-nft kmod-nft-compat kmod-nf-ipt libiptext-nft0 libiptext0 libxtables12  \
-nftables kmod-nft-offload \
-" CONFIG_DEBUG=n CONFIG_DEBUG_KERNEL=n ﻿CONFIG_USB=n CONFIG_SLUB_DEBUG=n CONFIG_BUG=n CONFIG_KALLSYMS=n CONFIG_NF_TABLES=n CONFIG_DEBUG_FS=n CONFIG_PRINTK=n CONFIG_IPV6=n CONFIG_KERNEL_CRASHLOG=n CONFIG_KERNEL_DEBUG_INFO=n CONFIG_KERNEL_ELF_CORE=n CONFIG_KERNEL_DEBUG_KERNEL=n CONFIG_KERNEL_SWAP=n CONFIG_KERNEL_PRINTK=n CONFIG_KERNEL_PRINTK_TIME=n CONFIG_COLLECT_KERNEL_DEBUG=n CONFIG_REPRODUCIBLE_DEBUG_INFO=n CONFIG_CRYPTO_USER_API_HASH=n CONFIG_CRYPTO_USER_API_SKCIPHER=n
+" CONFIG_NF_TABLES=y CONFIG_PACKAGE_luci-proto-ipv6=n  CONFIG_PACKAGE_kmod-nf-reject6=n CONFIG_PACKAGE_kmod-nf-log6=n CONFIG_DEBUG=n CONFIG_DEBUG_KERNEL=n ﻿CONFIG_USB=n CONFIG_SLUB_DEBUG=n CONFIG_BUG=n CONFIG_KALLSYMS=n CONFIG_DEBUG_FS=n CONFIG_PRINTK=n CONFIG_IPV6=n CONFIG_KERNEL_CRASHLOG=n CONFIG_KERNEL_DEBUG_INFO=n CONFIG_KERNEL_ELF_CORE=n CONFIG_KERNEL_DEBUG_KERNEL=n CONFIG_KERNEL_SWAP=n CONFIG_KERNEL_PRINTK=n CONFIG_KERNEL_PRINTK_TIME=n CONFIG_COLLECT_KERNEL_DEBUG=n CONFIG_REPRODUCIBLE_DEBUG_INFO=n CONFIG_CRYPTO_USER_API_HASH=n CONFIG_CRYPTO_USER_API_SKCIPHER=n
 
 
 # proxy2 # libevent2-7 libopenssl3 kmod-ipt-nat \
@@ -47,7 +46,7 @@ nftables kmod-nft-offload \
 # ramips mt7620：phicomm_psg1218a、lenovo_newifi-y1  
 # ramips mt7621：phicomm_k2p、d-team_newifi-d2、xiaomi_mi-router-4a-gigabit-v2、xiaomi_mi-router-4a-gigabit
 
-# fw4 : -firewall4 -nftables -kmod-nft-offload -kmod-nft-offload -nftables -kmod-nft-core -kmod-nft-nat -kmod-nft-fib -libnftnl -libnftables \
+# fw4 : -firewall4 -nftables -kmod-nft-offload -kmod-nft-offload -kmod-nft-core -kmod-nft-nat -kmod-nft-fib -libnftnl -libnftables \
 # fw3 : firewall iptables-legacy kmod-ipt-offload kmod-ipt-nat kmod-ipt-conntrack kmod-ipt-conntrack-extra iptables-mod-conntrack-extra kmod-ipt-raw \
 # mwan3 : mwan3 luci-app-mwan3 kmod-macvlan \
 
