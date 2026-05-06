@@ -23,6 +23,7 @@ make info
 make -j$(nproc) image PROFILE=${image_name} PACKAGES="\
 htop uhttpd openssh-sftp-server luci-base luci-proto-ppp luci-mod-admin-full luci-theme-bootstrap luci-i18n-base-zh-cn luci-i18n-firewall-zh-cn bash dnsmasq \
 curl ca-bundle unzip luci kmod-tcp-bbr kmod-macvlan \
+libevent2-7 libopenssl3 kmod-ipt-nat \
 -ddns-scripts -ddns-scripts_aliyun -ddns-scripts_dnspod -ip6t_REJECT -ip6tables -ip6tables-extra -ip6tables-mod-nat -ipv6helper \
 -kmod-6lowpan -kmod-ebtables-ipv6 -kmod-fou6 -kmod-gre6 -kmod-ip6-tunnel -kmod-ip6-vti -kmod-ip6tables -kmod-ip6tables-extra -kmod-ipsec6 \
 -kmod-ipt-nat6 -kmod-ipt-raw6 -kmod-iptunnel6 -kmod-ipv6 -kmod-ledtrig-usbdev -kmod-netfilter -kmod-nf-conntrack -kmod-nf-conntrack6 -kmod-nf-flow \
@@ -35,7 +36,7 @@ ip-tiny iptables-nft kmod-ipt-core xtables-nft kmod-nft-compat kmod-nf-ipt libip
 " CONFIG_NF_CONNTRACK_IPV6=n CONFIG_DEBUG=n CONFIG_DEBUG_KERNEL=n ﻿CONFIG_USB=n CONFIG_SLUB_DEBUG=n CONFIG_BUG=n CONFIG_KALLSYMS=n CONFIG_NF_TABLES=n CONFIG_DEBUG_FS=n CONFIG_PRINTK=n CONFIG_IPV6=n CONFIG_KERNEL_CRASHLOG=n CONFIG_KERNEL_DEBUG_INFO=n CONFIG_KERNEL_ELF_CORE=n CONFIG_KERNEL_DEBUG_KERNEL=n CONFIG_KERNEL_SWAP=n CONFIG_KERNEL_PRINTK=n CONFIG_KERNEL_PRINTK_TIME=n CONFIG_COLLECT_KERNEL_DEBUG=n CONFIG_REPRODUCIBLE_DEBUG_INFO=n CONFIG_CRYPTO_USER_API_HASH=n CONFIG_CRYPTO_USER_API_SKCIPHER=n
 
 
-
+# proxy2 # libevent2-7 libopenssl3 kmod-ipt-nat \
 # luci-app-mwan3 mwan3 kmod-macvlan libevent2-7 libopenssl3 \ kmod-ipt-conntrack kmod-nf-ipt iptables-nft iptables-mod-ipopt iptables-mod-conntrack-extra \
 # curl ca-bundle kmod-tun kmod-inet-diag unzip luci-compat luci \
 # curl ca-bundle ipset ip-full iptables-mod-tproxy iptables-mod-extra ruby ruby-yaml kmod-tun kmod-inet-diag unzip luci-compat luci dnsmasq-full \
