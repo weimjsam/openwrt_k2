@@ -22,7 +22,7 @@ cd openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64
 make info
 make -j$(nproc) image PROFILE=${image_name} PACKAGES="\
 htop uhttpd openssh-sftp-server luci-base luci-proto-ppp luci-mod-admin-full luci-theme-bootstrap luci-i18n-base-zh-cn luci-i18n-firewall-zh-cn bash \
-curl ca-bundle unzip luci dnsmasq-full-ipset kmod-tcp-bbr kmod-macvlan \
+curl ca-bundle unzip luci dnsmasq-full kmod-tcp-bbr kmod-macvlan \
 libevent2-7 libopenssl3 kmod-ipt-nat \
 -dnsmasq -ddns-scripts -ddns-scripts_aliyun -ddns-scripts_dnspod -ip6t_REJECT -ip6tables -ip6tables-extra -ip6tables-mod-nat -ipv6helper \
 -kmod-6lowpan -kmod-ebtables-ipv6 -kmod-fou6 -kmod-gre6 -kmod-ip6-tunnel -kmod-ip6-vti -kmod-ip6tables -kmod-ip6tables-extra -kmod-ipsec6 \
