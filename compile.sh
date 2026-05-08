@@ -1,7 +1,7 @@
 version="25.12.3"
-targets="mediatek"
-mips="mt7622"  
-image_name="xiaomi_redmi-router-ax6s"
+targets="ramips"
+mips="mt7621"  
+image_name="xiaomi_mi-router-4a-gigabit-v2"
 
 # Download and extract the OpenWrt imagebuilder
 # wget https://downloads.openwrt.org/releases/${version}/targets/${targets}/${mips}/openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar.xz 
@@ -18,27 +18,19 @@ tar -xvf openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar
 cd openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64
 
 
-mkdir -p ./build_dir/target-aarch64_cortex-a53_musl/linux-mediatek_mt7622/
-wget https://github.com/weimjsam/openwrt-rom/raw/refs/heads/main/buildsh/ax6s.dtb \
-  -O ./build_dir/target-aarch64_cortex-a53_musl/linux-mediatek_mt7622/image-mt7622-xiaomi-redmi-router-ax6s.dtb
-
-
 # Install the necessary packages and plugins 
 make info
 make -j$(nproc) image PROFILE=${image_name} PACKAGES="\
 htop uhttpd openssh-sftp-server luci-base luci-proto-ppp luci-mod-admin-full luci-theme-bootstrap luci-i18n-base-zh-cn luci-i18n-firewall-zh-cn bash \
-curl ca-bundle unzip luci dnsmasq-full kmod-tcp-bbr kmod-macvlan \
--luci-app-ddns -ddns-scripts -ddns-scripts_aliyun -ddns-scripts_dnspod -qos-scripts -kmod-usb-ehci -kmod-usb-printer -kmod-usb-storage \
--kmod-usb-storage-extras -kmod-usb-uhci -kmod-usb-core -kmod-usb2 -kmod-usb3 -kmod-usb-ohci -kmod-ledtrig-usbdev -ipv6helper -dnsmasq_full_dhcpv6 \
--ip6tables -ip6tables-extra -ip6tables-mod-nat -kmod-ip6tables-extra -kmod-ip6tables -kmod-nf-conntrack6 -kmod-nf-ipt6 -kmod-nf-reject6 -libip6tc2 \
--odhcp6c -odhcpd-ipv6only -luci-proto-ipv6 -kmod-ebtables-ipv6 -kmod-fou6 -kmod-ip6-tunnel -kmod-gre6 -kmod-6lowpan -kmod-ipsec6 -kmod-ip6-vti \
--kmod-ipt-nat6 -kmod-ipt-raw6 -kmod-iptunnel6 -kmod-nf-nat6 -kmod-nf-reject6 -kmod-nft-nat6 -kmod-udptunnel6 -kmod-sit \
--firewall4 -nftables -kmod-nft-offload -kmod-nft-offload  \
--kmod-nf-nat -kmod-nf-conntrack -kmod-nf-flow -kmod-nf-ipt -kmod-nf-ipt6 -kmod-nf-log -kmod-nf-log6 -kmod-nf-reject -kmod-nf-reject6 -dnsmasq \
-firewall iptables-legacy -ip6tables-legacy kmod-ipt-offload kmod-ipt-nat kmod-ipt-conntrack \
-kmod-ifb kmod-sched kmod-sched-core kmod-netem iptables-mod-conntrack-extra kmod-ipt-conntrack-extra kmod-ipt-raw \
-mwan3 \
-" CONFIG_IPV6=n CONFIG_KERNEL_CRASHLOG=n CONFIG_KERNEL_DEBUG_INFO=n CONFIG_KERNEL_ELF_CORE=n CONFIG_KERNEL_DEBUG_KERNEL=n CONFIG_STRIP_KERNEL_EXPORTS=y CONFIG_KERNEL_SWAP=n CONFIG_KERNEL_PRINTK=n CONFIG_KERNEL_PRINTK_TIME=n CONFIG_COLLECT_KERNEL_DEBUG=n CONFIG_REPRODUCIBLE_DEBUG_INFO=n CONFIG_OPENSSL_ENABLE_TLS1_2=y CONFIG_OPENSSL_ENABLE_TLS1_3=y CONFIG_OPENSSL_ENABLE_ALL_CIPHERS=y CONFIG_OPENSSL_ENABLE_ALL_DIGESTS=y CONFIG_OPENSSL_SECLEVEL=1 CONFIG_CRYPTO_USER_API_HASH=n CONFIG_CRYPTO_USER_API_SKCIPHER=n CONFIG_PACKAGE_ca-certificates=y CONFIG_PACKAGE_ca-bundle=y CONFIG_PACKAGE_openssl-util=y CONFIG_PACKAGE_curl=y CONFIG_PACKAGE_curl-nss=n CONFIG_PACKAGE_curl-openssl=y
+curl ca-bundle unzip luci dnsmasq-full kmod-tcp-bbr kmod-macvlan kmod-nft-connlimit \
+-dnsmasq -ddns-scripts -ddns-scripts_aliyun -ddns-scripts_dnspod -ip6t_REJECT -ip6tables -ip6tables-extra -ip6tables-mod-nat -ipv6helper \
+-kmod-6lowpan -kmod-ebtables-ipv6 -kmod-fou6 -kmod-gre6 -kmod-ip6-tunnel -kmod-ip6-vti -kmod-ip6tables -kmod-ip6tables-extra -kmod-ipsec6 \
+-kmod-ipt-nat6 -kmod-ipt-raw6 -kmod-iptunnel6 -kmod-ipv6 -kmod-ledtrig-usbdev -kmod-nf-conntrack6 \
+-kmod-nf-ipt6 -kmod-nf-log6 -kmod-nf-nat6 -kmod-nf-reject6 -kmod-nft-nat6 -kmod-sit \
+-kmod-udptunnel6 -kmod-usb-common -kmod-usb-core -kmod-usb-ehci -kmod-usb-ohci -kmod-usb-printer -kmod-usb-storage -kmod-usb-storage-extras -kmod-usb-uhci \
+-kmod-usb2 -kmod-usb3 -libip6tc -libip6tc2 -libiptext6-0 -luci-app-ddns -luci-proto-ipv6 -nf_defrag_ipv6 \
+-nf_reject_ipv6 -nf_tproxy_ipv6 -nft_reject_ipv6 -odhcp6c -odhcpd-ipv6only -qos-scripts \
+" CONFIG_DEBUG=n CONFIG_DEBUG_KERNEL=n ﻿CONFIG_USB=n CONFIG_SLUB_DEBUG=n CONFIG_BUG=n CONFIG_KALLSYMS=n CONFIG_DEBUG_FS=n CONFIG_PRINTK=n CONFIG_IPV6=n CONFIG_KERNEL_CRASHLOG=n CONFIG_KERNEL_DEBUG_INFO=n CONFIG_KERNEL_ELF_CORE=n CONFIG_KERNEL_DEBUG_KERNEL=n CONFIG_KERNEL_SWAP=n CONFIG_KERNEL_PRINTK=n CONFIG_KERNEL_PRINTK_TIME=n CONFIG_COLLECT_KERNEL_DEBUG=n CONFIG_REPRODUCIBLE_DEBUG_INFO=n CONFIG_CRYPTO_USER_API_HASH=n CONFIG_CRYPTO_USER_API_SKCIPHER=n
 
 
 # kmod-ipt-nat 
