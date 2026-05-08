@@ -1,7 +1,7 @@
 version="25.12.3"
-targets="ramips"
-mips="mt7621"  
-image_name="xiaomi_mi-router-4a-gigabit-v2"
+targets="mediatek"
+mips="mt7622"  
+image_name="xiaomi_redmi-router-ax6s"
 
 # Download and extract the OpenWrt imagebuilder
 # wget https://downloads.openwrt.org/releases/${version}/targets/${targets}/${mips}/openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar.xz 
@@ -18,6 +18,11 @@ tar -xvf openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar
 cd openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64
 
 
+mkdir -p ./build_dir/target-aarch64_cortex-a53_musl/linux-mediatek_mt7622/
+wget https://github.com/weimjsam/openwrt-rom/raw/refs/heads/main/buildsh/ax6s.dtb \
+  -O ./build_dir/target-aarch64_cortex-a53_musl/linux-mediatek_mt7622/image-mt7622-xiaomi-redmi-router-ax6s.dtb
+
+
 # Install the necessary packages and plugins 
 make info
 make -j$(nproc) image PROFILE=${image_name} PACKAGES="\
@@ -30,6 +35,10 @@ curl ca-bundle unzip luci dnsmasq-full kmod-tcp-bbr kmod-macvlan kmod-nft-connli
 -kmod-udptunnel6 -kmod-usb-common -kmod-usb-core -kmod-usb-ehci -kmod-usb-ohci -kmod-usb-printer -kmod-usb-storage -kmod-usb-storage-extras -kmod-usb-uhci \
 -kmod-usb2 -kmod-usb3 -libip6tc -libip6tc2 -libiptext6-0 -luci-app-ddns -luci-proto-ipv6 -nf_defrag_ipv6 \
 -nf_reject_ipv6 -nf_tproxy_ipv6 -nft_reject_ipv6 -odhcp6c -odhcpd-ipv6only -qos-scripts \
+-firewall4 -nftables -kmod-nft-offload -kmod-nft-offload -kmod-nft-core -kmod-nft-nat -kmod-nft-fib \
+firewall iptables-legacy kmod-ipt-offload kmod-ipt-nat kmod-ipt-conntrack kmod-ipt-conntrack-extra iptables-mod-conntrack-extra kmod-ipt-raw \
+ipset libipset13 kmod-ipt-ipset iptables-mod-conntrack-extra kmod-ipt-conntrack-extra kmod-ipt-conntrack kmod-nf-conncount iptables-mod-ipopt kmod-ipt-ipopt \
+ip-tiny iptables-nft kmod-ipt-core xtables-nft kmod-nft-compat kmod-nf-ipt libiptext-nft0 libiptext0 libxtables12  \
 " CONFIG_DEBUG=n CONFIG_DEBUG_KERNEL=n ﻿CONFIG_USB=n CONFIG_SLUB_DEBUG=n CONFIG_BUG=n CONFIG_KALLSYMS=n CONFIG_DEBUG_FS=n CONFIG_PRINTK=n CONFIG_IPV6=n CONFIG_KERNEL_CRASHLOG=n CONFIG_KERNEL_DEBUG_INFO=n CONFIG_KERNEL_ELF_CORE=n CONFIG_KERNEL_DEBUG_KERNEL=n CONFIG_KERNEL_SWAP=n CONFIG_KERNEL_PRINTK=n CONFIG_KERNEL_PRINTK_TIME=n CONFIG_COLLECT_KERNEL_DEBUG=n CONFIG_REPRODUCIBLE_DEBUG_INFO=n CONFIG_CRYPTO_USER_API_HASH=n CONFIG_CRYPTO_USER_API_SKCIPHER=n
 
 # kmod-ipt-nat 
