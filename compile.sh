@@ -1,7 +1,7 @@
 version="24.10.6"
-targets="ramips"
-mips="mt7621"  
-image_name="xiaomi_mi-router-4a-gigabit-v2"
+targets="mediatek"
+mips="mt7622"  
+image_name="xiaomi_redmi-router-ax6s"
 
 # Download and extract the OpenWrt imagebuilder
 # wget https://downloads.openwrt.org/releases/${version}/targets/${targets}/${mips}/openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar.xz 
@@ -12,10 +12,10 @@ image_name="xiaomi_mi-router-4a-gigabit-v2"
 # immortalwrt 三方分支
 wget https://downloads.immortalwrt.org/releases/${version}/targets/${targets}/${mips}/immortalwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar.zst
 
-#xz -d openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar.xz
-zstd -d openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar.zst
-tar -xvf openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar
-cd openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64
+#xz -d immortalwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar.xz
+zstd -d immortalwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar.zst
+tar -xvf immortalwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar
+cd immortalwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64
 
 mkdir -p ./build_dir/target-aarch64_cortex-a53_musl/linux-mediatek_mt7622/
 wget https://github.com/weimjsam/openwrt-rom/raw/refs/heads/main/buildsh/ax6s.dtb \
