@@ -1,7 +1,7 @@
 version="24.10.6"
-targets="ramips"
-mips="mt7621"  
-image_name="xiaomi_mi-router-4a-gigabit-v2"
+targets="mediatek"
+mips="mt7622"  
+image_name="xiaomi_redmi-router-ax6s"
 
 # Download and extract the OpenWrt imagebuilder
 # wget https://downloads.openwrt.org/releases/${version}/targets/${targets}/${mips}/openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar.xz 
@@ -27,7 +27,6 @@ make info
 make -j$(nproc) image PROFILE=${image_name} PACKAGES="\
 htop uhttpd openssh-sftp-server luci-base luci-proto-ppp luci-mod-admin-full luci-theme-bootstrap luci-i18n-base-zh-cn luci-i18n-firewall-zh-cn bash \
 curl ca-bundle unzip luci dnsmasq-full kmod-tcp-bbr kmod-macvlan kmod-nft-connlimit \
-libevent2-7 libopenssl3 \
 -dnsmasq -ddns-scripts -ddns-scripts_aliyun -ddns-scripts_dnspod -ip6t_REJECT -ip6tables -ip6tables-extra -ip6tables-mod-nat -ipv6helper \
 -kmod-6lowpan -kmod-ebtables-ipv6 -kmod-fou6 -kmod-gre6 -kmod-ip6-tunnel -kmod-ip6-vti -kmod-ip6tables -kmod-ip6tables-extra -kmod-ipsec6 \
 -kmod-ipt-nat6 -kmod-ipt-raw6 -kmod-iptunnel6 -kmod-ipv6 -kmod-ledtrig-usbdev -kmod-nf-conntrack6 \
@@ -36,6 +35,7 @@ libevent2-7 libopenssl3 \
 -kmod-usb2 -kmod-usb3 -libip6tc -libip6tc2 -libiptext6-0 -luci-app-ddns -luci-proto-ipv6 -nf_defrag_ipv6 \
 -nf_reject_ipv6 -nf_tproxy_ipv6 -nft_reject_ipv6 -odhcp6c -odhcpd-ipv6only -qos-scripts \
 " CONFIG_DEBUG=n CONFIG_DEBUG_KERNEL=n ﻿CONFIG_USB=n CONFIG_SLUB_DEBUG=n CONFIG_BUG=n CONFIG_KALLSYMS=n CONFIG_DEBUG_FS=n CONFIG_PRINTK=n CONFIG_IPV6=n CONFIG_KERNEL_CRASHLOG=n CONFIG_KERNEL_DEBUG_INFO=n CONFIG_KERNEL_ELF_CORE=n CONFIG_KERNEL_DEBUG_KERNEL=n CONFIG_KERNEL_SWAP=n CONFIG_KERNEL_PRINTK=n CONFIG_KERNEL_PRINTK_TIME=n CONFIG_COLLECT_KERNEL_DEBUG=n CONFIG_REPRODUCIBLE_DEBUG_INFO=n CONFIG_CRYPTO_USER_API_HASH=n CONFIG_CRYPTO_USER_API_SKCIPHER=n
+
 
 
 # kmod-ipt-nat 
