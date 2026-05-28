@@ -1,7 +1,7 @@
 version="24.10.6"
-targets="mediatek"
-mips="mt7622"  
-image_name="xiaomi_redmi-router-ax6s"
+targets="ramips"
+mips="mt7621"  
+image_name="d-team_newifi-d2"
 
 # Download and extract the OpenWrt imagebuilder
 # wget https://downloads.openwrt.org/releases/${version}/targets/${targets}/${mips}/openwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar.xz 
@@ -17,9 +17,6 @@ zstd -d immortalwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar.
 tar -xvf immortalwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64.tar
 cd immortalwrt-imagebuilder-${version}-${targets}-${mips}.Linux-x86_64
 
-mkdir -p ./build_dir/target-aarch64_cortex-a53_musl/linux-mediatek_mt7622/
-wget https://github.com/weimjsam/openwrt-rom/raw/refs/heads/main/buildsh/ax6s.dtb \
-  -O ./build_dir/target-aarch64_cortex-a53_musl/linux-mediatek_mt7622/image-mt7622-xiaomi-redmi-router-ax6s.dtb
 
 
 # Install the necessary packages and plugins 
